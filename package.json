@@ -58,6 +58,9 @@
       "last 1 safari version"
     ]
   },
+  "overrides": {
+    "mini-css-extract-plugin": "2.4.5"
+  },
   "devDependencies": {
     "@babel/plugin-syntax-jsx": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
@@ -67,6 +70,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.7",
+    "mini-css-extract-plugin": "2.4.5",
     "prettier": "^2.5.1",
     "sass": "^1.48.0",
     "stylelint": "^13.13.1",
