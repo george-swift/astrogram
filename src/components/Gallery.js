@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import FlipMove from 'react-flip-move';
+import Img from 'react-cool-img';
 import Stack from '@mui/material/Stack';
 import Pagination from '@mui/material/Pagination';
 import fetchGallery from '../api';
@@ -38,9 +39,7 @@ const Gallery = () => {
   if (error) return <BasicAlert message={error.message} />;
 
   return (
-    <section className="gallery">
-      <h1>Astronomy Photo Gallery</h1>
-
+    <main className="gallery">
       <CustomDatePicker
         start={startDate}
         updateStart={setStartDate}
@@ -50,23 +49,30 @@ const Gallery = () => {
         filter={filterSearch}
       />
 
+      <Stack spacing={2} direction="row" justifyContent="center">
+        <Pagination page={page} count={count} onChange={paginate} />
+      </Stack>
+
       <FlipMove typeName="ul" className="cardContainer">
         {gallery.map(({ date, url, title }) => (
           <li key={url} className="card">
-            <img src={url} className="card__image" alt={title} />
+            <Img src={url} className="card__image" alt={title} />
             <div className="card__body">
               <h2 className="card__title">{title}</h2>
-              <small className="card__date">{date}</small>
+              <small className="card__date">
+                📸 &nbsp;
+                {date}
+              </small>
               <LikeButton />
             </div>
           </li>
         ))}
       </FlipMove>
 
-      <Stack spacing={2} justifyContent="flex-end">
+      <Stack spacing={2} direction="row" justifyContent="center">
         <Pagination page={page} count={count} onChange={paginate} />
       </Stack>
-    </section>
+    </main>
   );
 };
 
