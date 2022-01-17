@@ -14,7 +14,7 @@ const CustomDatePicker = ({
   start, updateStart, today, end, updateEnd, filter,
 }) => (
   <LocalizationProvider dateAdapter={AdapterDateFns}>
-    <Stack spacing={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="flex-end">
+    <Stack component="form" spacing={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="center">
       <DatePicker
         disableFuture
         label="From"

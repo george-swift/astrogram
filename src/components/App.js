@@ -7,6 +7,9 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <header>
+      <h1>Astronomy Photo Gallery</h1>
+    </header>
     <Gallery />
   </QueryClientProvider>
 );
