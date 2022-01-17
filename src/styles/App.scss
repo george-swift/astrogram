@@ -2,7 +2,7 @@ $black: #1a1e22;
 $grey: #6c757d;
 $white: #fff;
 $red: #f00d0d;
-$thin-border: 1px solid rgba(0, 0, 0, 0.125);
+$thinBorder: 1px solid rgba(0, 0, 0, 0.125);
 $hairlineShadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 $animeShorthand: 0.5s cubic-bezier(0.36, 0.07, 0.18, 0.95) both;
 
@@ -35,7 +35,7 @@ $animeShorthand: 0.5s cubic-bezier(0.36, 0.07, 0.18, 0.95) both;
   word-wrap: break-word;
   background-color: $white;
   background-clip: border-box;
-  border: $thin-border;
+  border: $thinBorder;
   border-radius: 0.25rem;
 
   &:hover {
