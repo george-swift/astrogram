@@ -1,0 +1,41 @@
+$font-helvetica: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0 0.75rem;
+  font-family: $font-helvetica;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h1,
+h2 {
+  font-weight: 500;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+svg {
+  font-size: 1.5rem;
+}

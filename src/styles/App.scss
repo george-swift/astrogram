@@ -1,0 +1,127 @@
+$black: #1a1e22;
+$grey: #6c757d;
+$white: #fff;
+$red: #f00d0d;
+$thin-border: 1px solid rgba(0, 0, 0, 0.125);
+$hairlineShadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+$animeShorthand: 0.5s cubic-bezier(0.36, 0.07, 0.18, 0.95) both;
+
+.gallery {
+  padding: 0.75rem 0.75rem;
+
+  h1 {
+    color: $black;
+    font-size: clamp(28px, 3vw, 4rem);
+  }
+
+  & > div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 25px;
+  padding: 1rem 0;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: $white;
+  background-clip: border-box;
+  border: $thin-border;
+  border-radius: 0.25rem;
+
+  &:hover {
+    box-shadow: $hairlineShadow;
+  }
+
+  &__image {
+    width: 100%;
+    height: 250px;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    background-color: $black;
+    color: $white;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    letter-spacing: -0.8px;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+  }
+
+  &__date {
+    color: $grey;
+    font-weight: 500;
+    margin-right: 65%;
+  }
+
+  &__icon--liked {
+    color: $red;
+    -webkit-animation: animatedlike $animeShorthand;
+    animation: animatedLike $animeShorthand;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    perspective: 100px;
+  }
+}
+
+@-webkit-keyframes animatedLike {
+  10%,
+  90% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(0, -2px, 0) rotate(5deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(0, -2px, 0) rotate(-5deg);
+  }
+}
+
+@keyframes animatedLike {
+  10%,
+  90% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(0, -2px, 0) rotate(5deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(0, -2px, 0) rotate(-5deg);
+  }
+}
