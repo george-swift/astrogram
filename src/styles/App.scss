@@ -1,5 +1,5 @@
 $black: #1a1e22;
-$grey: #6c757d;
+$grey: #7F8890;
 $white: #fff;
 $red: #f00d0d;
 $thinBorder: 1px solid rgba(0, 0, 0, 0.125);
@@ -7,16 +7,11 @@ $hairlineShadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 $animeShorthand: 0.5s cubic-bezier(0.36, 0.07, 0.18, 0.95) both;
 
 .gallery {
-  padding: 0.75rem 0.75rem;
-
-  h1 {
-    color: $black;
-    font-size: clamp(28px, 3vw, 4rem);
-  }
+  padding: 0rem 0.75rem 0.75rem;
 
   & > div {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -24,7 +19,6 @@ $animeShorthand: 0.5s cubic-bezier(0.36, 0.07, 0.18, 0.95) both;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   gap: 25px;
-  padding: 1rem 0;
 }
 
 .card {
@@ -43,8 +37,11 @@ $animeShorthand: 0.5s cubic-bezier(0.36, 0.07, 0.18, 0.95) both;
   }
 
   &__image {
+    min-width: 250px;
     width: 100%;
+    max-width: 385px;
     height: 250px;
+    background-color: $black;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
   }
@@ -66,7 +63,7 @@ $animeShorthand: 0.5s cubic-bezier(0.36, 0.07, 0.18, 0.95) both;
   &__date {
     color: $grey;
     font-weight: 500;
-    margin-right: 65%;
+    margin-right: 55%;
   }
 
   &__icon--liked {

@@ -1,4 +1,6 @@
 $font-helvetica: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$black: #1b1e20;
+$smokey: #f5f5f5;
 
 html {
   box-sizing: border-box;
@@ -16,6 +18,16 @@ body {
   font-family: $font-helvetica;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  padding: 0.75rem 0.75rem 0.25rem;
+  color: $black;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(28px, 3vw, 4rem);
 }
 
 h1,
