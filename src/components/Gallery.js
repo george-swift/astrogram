@@ -32,7 +32,10 @@ const Gallery = () => {
 
   const paginate = (_, value) => setPage(value);
 
-  const filterSearch = () => refetch();
+  const filterSearch = () => {
+    refetch();
+    setPage(1);
+  };
 
   if (isLoading) return <Spinner wUnit="vw" hUnit="vh" />;
 
