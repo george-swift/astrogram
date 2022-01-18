@@ -12,15 +12,15 @@ import Spinner from './Spinner';
 import BasicAlert from './BasicAlert';
 
 const Gallery = () => {
-  const { dateLastMonth, dateToday } = getMonth();
-  const [startDate, setStartDate] = useState(dateLastMonth);
-  const [endDate, setEndDate] = useState(dateToday);
+  const { start: thirtyDaysAgo, end: yesterday } = getMonth();
+  const [startDate, setStartDate] = useState(thirtyDaysAgo);
+  const [endDate, setEndDate] = useState(yesterday);
 
   const [page, setPage] = useState(1);
   const [maxPerPage] = useState(12);
 
   const {
-    data, isLoading, error, refetch,
+    data, isLoading, error, refetch, isRefetching,
   } = useQuery(
     'astroImages',
     () => fetchGallery(startDate, endDate),
@@ -34,7 +34,7 @@ const Gallery = () => {
 
   const filterSearch = () => refetch();
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Spinner wUnit="vw" hUnit="vh" />;
 
   if (error) return <BasicAlert message={error.message} />;
 
@@ -45,33 +45,37 @@ const Gallery = () => {
         updateStart={setStartDate}
         end={endDate}
         updateEnd={setEndDate}
-        today={dateToday}
+        recent={yesterday}
         filter={filterSearch}
       />
 
-      <Stack spacing={2} direction="row" justifyContent="center">
-        <Pagination page={page} count={count} onChange={paginate} />
-      </Stack>
+      {isRefetching ? <Spinner wUnit="%" hUnit="%" /> : (
+        <>
+          <Stack spacing={2} direction="row" justifyContent="center">
+            <Pagination page={page} count={count} onChange={paginate} />
+          </Stack>
 
-      <FlipMove typeName="ul" className="cardContainer">
-        {gallery.map(({ date, url, title }) => (
-          <li key={url} className="card">
-            <Img src={url} className="card__image" alt={title} />
-            <div className="card__body">
-              <h2 className="card__title">{title}</h2>
-              <small className="card__date">
-                📸 &nbsp;
-                {date}
-              </small>
-              <LikeButton />
-            </div>
-          </li>
-        ))}
-      </FlipMove>
+          <FlipMove typeName="ul" className="cardContainer">
+            {gallery.map(({ date, url, title }) => (
+              <li key={url} className="card">
+                <Img src={url} className="card__image" alt={title} />
+                <div className="card__body">
+                  <h2 className="card__title">{title}</h2>
+                  <small className="card__date">
+                    📸 &nbsp;
+                    {date}
+                  </small>
+                  <LikeButton />
+                </div>
+              </li>
+            ))}
+          </FlipMove>
 
-      <Stack spacing={2} direction="row" justifyContent="center">
-        <Pagination page={page} count={count} onChange={paginate} />
-      </Stack>
+          <Stack spacing={2} direction="row" justifyContent="center">
+            <Pagination page={page} count={count} onChange={paginate} />
+          </Stack>
+        </>
+      )}
     </main>
   );
 };
