@@ -10,14 +10,13 @@ export const formatGallery = (data) => {
 export const shortISO = (date) => format(date, 'yyyy-MM-dd');
 
 export const getMonth = () => {
-  const today = new Date();
-  const timestamp = new Date().setDate(today.getDate() - 30);
-  const dateLastMonth = shortISO(new Date(timestamp));
+  const prevMonth = new Date().setDate(new Date().getDate() - 30);
+  const start = shortISO(new Date(prevMonth));
 
-  return {
-    dateLastMonth,
-    dateToday: shortISO(today),
-  };
+  const current = new Date().setDate(new Date().getDate() - 1);
+  const end = shortISO(new Date(current));
+
+  return { start, end };
 };
 
 export const dateSetter = (setter) => (date) => setter(shortISO(new Date(date)));
