@@ -5,7 +5,7 @@
 [Click to visit the gallery](https://astro-images.netlify.app/)
 
 ## Features
-A single page app that allows users to view stunning images of our universe courtsey of NASA. At the very least, users can like and unlike their favourite photos, each of which has a title and capture date. Users can also browse photos from specific dates by using the date picker to filter search results.
+A single page app that allows users to view stunning images of our universe courtesy of NASA. At the very least, users can like and unlike their favourite photos, each of which has a title and capture date. Users can also browse photos from specific dates by using the date picker to filter search results.
 
 ## Prerequisites
 - Internet Connection
