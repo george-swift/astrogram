@@ -11,7 +11,7 @@ import parseISO from 'date-fns/parseISO';
 import { dateSetter } from '../utils';
 
 const CustomDatePicker = ({
-  start, updateStart, today, end, updateEnd, filter,
+  start, updateStart, recent, end, updateEnd, filter,
 }) => (
   <LocalizationProvider dateAdapter={AdapterDateFns}>
     <Stack component="form" spacing={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="center">
@@ -32,7 +32,7 @@ const CustomDatePicker = ({
         openTo="day"
         views={['year', 'month', 'day']}
         inputFormat="yyyy/MM/dd"
-        maxDate={parseISO(today)}
+        maxDate={parseISO(recent)}
         value={parseISO(end)}
         onChange={dateSetter(updateEnd)}
         renderInput={(params) => <TextField {...params} />}
@@ -52,7 +52,7 @@ const CustomDatePicker = ({
 
 CustomDatePicker.propTypes = {
   start: PropTypes.string.isRequired,
-  today: PropTypes.string.isRequired,
+  recent: PropTypes.string.isRequired,
   end: PropTypes.string.isRequired,
   updateStart: PropTypes.func.isRequired,
   updateEnd: PropTypes.func.isRequired,
